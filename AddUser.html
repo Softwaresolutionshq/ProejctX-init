@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+    <title>Treeproject</title>
+    <meta charset = "UTF-8" />
+  </head>
+  <body>
+    <Center><h1>User Creation</h1></Center>
+    </br></br>
+
+     <script>
+ 
+    function makeRequest()
+  {
+    console.log('making a http request');
+    
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if (xmlhttp.status == 200) {
+             console.log('success');
+          }
+          else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+          }
+          else {
+              alert('something else other than 200 was returned');
+          }
+        }
+    };
+
+    xmlhttp.open("GET", ":8081", true);
+    xmlhttp.send();
+  }
+ </script>
+    
+<button onclick="makeRequest()">Click me</button>
+
+
+
+<form action="https://treeneo-munnac9.c9users.io:8082" method="post">
+    
+       <p>
+          <label>Person Name</label>
+          <input type = "text"
+                 name = "nameField"
+                 id = "nameField"
+                 value = "" />
+        </p>
+        
+        <p>
+          <label>Age</label>
+          <input type = "text"
+                 name = "ageField"
+                 id = "ageField"
+                 value = "" />
+        </p>
+        <p>
+          <label>Gender</label>
+          <input type = "text"
+                  name = "genderField"
+                 id = "genderField"
+                 value = "" />
+        </p>
+       
+    <input type="submit" value="Create Person">
+    </form>
+    
+        <br/><br/>
+        <select id="list1"></select>
+        
+        <br/><br/>
+        <select id="list2"></select>
+
+    <script type="text/javascript">
+    var cuisines = ["Chinese","Indian"];     
+    var sel = document.getElementById('list1');
+    for(var i = 0; i < cuisines.length; i++) 
+    {
+        var opt = document.createElement('option');
+        opt.innerHTML = cuisines[i];
+        opt.value = cuisines[i];
+        sel.appendChild(opt);
+    }         
+    </script>
+
+
+
+  </body>
+</html>
